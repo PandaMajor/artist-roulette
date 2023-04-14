@@ -19,6 +19,6 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: var(--bg-img) no-repeat top fixed;
+  background: var(--bg-img) no-repeat top;
   background-size: cover;
 }

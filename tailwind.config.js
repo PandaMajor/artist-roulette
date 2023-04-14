@@ -15,6 +15,8 @@ module.exports = {
       },
       colors: {
         'blueberry': '#a5a6ec',
+        'light-bg' : 'rgba(255, 255, 255, 0.05)',
+        'dark-bg' : 'rgba(31, 31, 31, 0.05)',
       },
       backgroundImage: {
         'gradient': "url('./assets/gradient.png')",
