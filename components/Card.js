@@ -20,7 +20,7 @@ const Card = ({artistPhoto, name, tracks}) => {
       <div className="container flex flex-col items-center justify-center w-1/2 mx-auto my-auto">
         <div className="text-3xl font-bold text-white align-middle">{name}</div>
         <div className="mb-4 text-base text-white">Top Songs:</div>
-        <svg width="480" height="2" viewBox="0 0 480 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="480" height="2" viewBox="0 0 480 2" fill="none" xmlns="http://www.w3.org/2000/svg" className='w-full'>
         <rect y="0.5" width="480" height="1" fill="white" fillOpacity="0.9"/>
         </svg>
         <div className="container flex flex-col w-full mt-8 space-y-1">
