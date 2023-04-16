@@ -17,7 +17,7 @@ export default function Home() {
 
   const [token, setToken] = useState();
   const [artist, setArtist] = useState({photo: 'https://i.scdn.co/image/ab6761610000e5eb181a909eb13bbe013eeb7708', name: 'mystery singer'});
-  const [tracks, setTracks] = useState([]);
+  const [tracks, setTracks] = useState([] as any);
   var topTracks = [];
 
   // get spotify api access token
@@ -94,7 +94,7 @@ export default function Home() {
         }
       })
       .then((response: any) => {
-        let topTracks = []
+        let topTracks = useState([] as any)
 
         for(const element of response.data.tracks){
           console.log('\t' + element.name)
