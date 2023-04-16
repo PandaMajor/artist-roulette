@@ -22,7 +22,6 @@ import Note from '../assets/Note.svg'
                       <p className="font-sans font-bold">Get Started</p>
                     </button>
                 </div>
-                
             </div>
         </div>
       </div>
