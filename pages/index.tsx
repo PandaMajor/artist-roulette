@@ -13,8 +13,22 @@ export default function Home() {
   const SPOTIFY_RESPONSE_TYPE=process.env.NEXT_PUBLIC_SPOTIFY_RESPONSE_TYPE
 
   const [token, setToken] = useState('');
-  const [artist, setArtist] = useState({});
+  const [artist, setArtist] = useState({photo: 'https://i.scdn.co/image/ab6761610000e5eb181a909eb13bbe013eeb7708', name: 'mystery singer'});
+  const [tracks, setTracks] = useState([]);
+  var topTracks = [];
 
+  // Used to convert the duration from ms to "minutes : seconds" format
+  function millisToMinutesAndSeconds(millis: number) {
+    var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return (
+      seconds == 60 ?
+      (minutes+1) + ":00" :
+      minutes + ":" + (seconds < 10 ? "0" : "") + seconds
+    );
+  }
+
+  // Perform Spotify OAuth to get the access token
   useEffect(() => {
     const hash = window.location.hash
     let token:string = window.localStorage.getItem('token')!                                                    // used to assure ts that token is not null 
@@ -28,41 +42,61 @@ export default function Home() {
     setToken(token)
   }, [])
 
+  // Logout, deletes the OAuth token
   const logout = () => {
     setToken("")
     window.localStorage.removeItem("token")
   }
 
-  function handleArtist() {
-    setArtist({
-      photo: 'https://i.scdn.co/image/ab6761610000e5ebcdce7620dc940db079bf4952',
-      name: 'Test Name 2'
-    })
-    console.log(artist)
-    console.log('token: ' + token);
-  }
-
-  var ariana = {
-    photo: 'https://i.scdn.co/image/ab6761610000e5ebcdce7620dc940db079bf4952',
-    name: 'Ariana Grande'
-  }
-  var tracks = {
-    albumCover: 'https://i.scdn.co/image/ab67616d000048518ad8f5243d6534e03b656c8b',
-    songTitle: 'Die For You (with Ariana Grande) - Remix',
-    duration: '3:52'
-  }
-
+  // Spotify API Calls
   const getArtist = async (e: { preventDefault: () => void }) => {
+    console.log('button pressed')
     e.preventDefault()
-    const { data } = await axios.get('https://api.spotify.com/v1/artists/0X2BH1fck6amBIoJhDVmmJ', {
+    var { data } = await axios.get('https://api.spotify.com/v1/artists/74KM79TiuVKeVCqs8QtB0B', {
       headers: {
         Authorization: `Bearer ${token}`
       },
       params: {}
     })
 
-    setArtist(data)
-    console.log(artist)
+    setArtist({
+      photo: data.images[0].url,
+      name: data.name
+    })
+    
+    // Get the top tracks
+    data = await axios.get('https://api.spotify.com/v1/artists/74KM79TiuVKeVCqs8QtB0B/top-tracks?market=US', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      params: {
+        market: 'US'
+      }
+    })
+
+    console.log(data.data.tracks)
+
+    for(const element of data.data.tracks){
+      console.log('\t' + element.name)
+      topTracks.push({
+        albumCover: element.album.images[2].url,
+        songTitle: element.name,
+        duration: millisToMinutesAndSeconds(element.duration_ms),
+        key: tracks.length + 1
+      })
+      setTracks([
+        ...tracks, 
+        {
+          albumCover: element.album.images[2].url,
+          songTitle: element.name,
+          duration: millisToMinutesAndSeconds(element.duration_ms),
+          index: tracks.length + 1
+        }]);
+    }
+
+    //setTracks(topTracks);
+    console.log('tracks is')
+    console.log(tracks)
   }
 
   return (
@@ -108,7 +142,7 @@ export default function Home() {
           }
         </div>
       </div>
-      <Card artistPhoto={ariana.photo} name={ariana.name} tracks={tracks} />
+      <Card artistPhoto={ artist.photo } name={ artist.name } tracks={tracks} />
       <div className="w-full h-full py-12 text-center bg-white/30">bottom</div>
     </main>
   )
