@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react'
 const axios = require('axios').default;
 const inter = Inter({ subsets: ['latin'] })
 
+// TODO : UPDATE ENV VARS ON DEPLOYMENT
+
 export default function Home() {
   const SPOTIFY_CLIENT_ID=process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID
   const SPOTIFY_REDIRECT_URI=process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI
