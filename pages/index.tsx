@@ -63,7 +63,6 @@ export default function Home() {
     })
     .then(function (response: any) {
       setToken(response.data.access_token)
-      console.log('token : ' + token)
 
       // Get artist name + photo
       axios.get('https://api.spotify.com/v1/artists/' + artists[randArtist], {
@@ -103,9 +102,9 @@ export default function Home() {
           });
           // setTracks([]);
         }
-        console.log(topTracks)
+        // console.log(topTracks)
         setTracks(topTracks);
-        console.log(tracks)
+        // console.log(tracks)
         delete artists[randArtist]
         console.log(artist.name + ' removed')
       })
