@@ -6,8 +6,6 @@ import { useEffect, useState } from 'react'
 const axios = require('axios').default;
 const inter = Inter({ subsets: ['latin'] })
 
-// TODO : UPDATE ENV VARS ON DEPLOYMENT
-
 export default function Home() {
   const SPOTIFY_CLIENT_ID=process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID
   const SPOTIFY_SECRET=process.env.NEXT_PUBLIC_SPOTIFY_SECRET
@@ -18,7 +16,6 @@ export default function Home() {
   const [token, setToken] = useState();
   const [artist, setArtist] = useState({photo: 'https://i.scdn.co/image/ab6761610000e5eb181a909eb13bbe013eeb7708', name: 'mystery singer'});
   const [tracks, setTracks] = useState([] as any);
-  var topTracks = [];
 
   // get spotify api access token
   const getAccessToken = async () => {
@@ -94,7 +91,7 @@ export default function Home() {
         }
       })
       .then((response: any) => {
-        let topTracks = useState([] as any)
+        let topTracks:any[] = []
 
         for(const element of response.data.tracks){
           console.log('\t' + element.name)
@@ -109,63 +106,16 @@ export default function Home() {
         console.log(topTracks)
         setTracks(topTracks);
         console.log(tracks)
+        delete artists[randArtist]
+        console.log(artist.name + ' removed')
       })
       .catch((error: any) => {
         console.log(error)
       })
-
     })
     .catch((error: any) => {
       console.log(error)
     })
-
-    // var { data } = await axios.get('https://api.spotify.com/v1/artists/' + artists[randArtist], {
-    //   headers: {
-    //     Authorization: `Bearer ${token}`
-    //   },
-    //   params: {}
-    // })
-
-    // setArtist({
-    //   photo: data.images[0].url,
-    //   name: data.name
-    // })
-
-    
-    
-    // Get the top tracks
-    // var {data} = await axios.get('https://api.spotify.com/v1/artists/' + artists[randArtist] + '/top-tracks?market=US', {
-    //   headers: {
-    //     Authorization: `Bearer ${token}`
-    //   },
-    //   params: {
-    //     market: 'US'
-    //   }
-    // })
-
-    // console.log(data.data.tracks)
-
-    // for(const element of data.data.tracks){
-    //   console.log('\t' + element.name)
-    //   topTracks.push({
-    //     albumCover: element.album.images[2].url,
-    //     songTitle: element.name,
-    //     duration: millisToMinutesAndSeconds(element.duration_ms),
-    //     key: tracks.length + 1
-    //   })
-    //   setTracks([]);
-    //   // setTracks([
-    //   //   ...tracks, 
-    //   //   {
-    //   //     albumCover: element.album.images[2].url,
-    //   //     songTitle: element.name,
-    //   //     duration: millisToMinutesAndSeconds(element.duration_ms),
-    //   //     index: tracks.length + 1
-    //   //   }]);
-    // }
-
-    // console.log('tracks is')
-    // console.log(tracks)
   }
 
   return (
