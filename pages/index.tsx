@@ -102,7 +102,6 @@ export default function Home() {
       //   }]);
     }
 
-    //setTracks(topTracks);
     console.log('tracks is')
     console.log(tracks)
   }
