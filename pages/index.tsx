@@ -1,7 +1,8 @@
 import { Inter } from 'next/font/google'
 import Header from '../components/Header'
 import Card from '../components/Card'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import Head from 'next/head';
 
 const axios = require('axios').default;
 const inter = Inter({ subsets: ['latin'] })
@@ -123,29 +124,40 @@ export default function Home() {
   }
 
   return (
-    <main className={inter.className}>
-      <Header />
-      <div className="container flex flex-row justify-center w-auto mx-auto mt-8">
-        <div className="container flex flex-col space-y-6">
-          <div className="flex flex-row justify-center">
-            <p className="font-sans font-medium">WELCOME TO</p>
-          </div>
-          <div className="flex flex-row justify-center">
-            <p className="font-sans text-4xl font-bold">ARTIST ROULETTE</p>
-          </div>
-          <div className="flex flex-row justify-center">
-            <p className="font-sans font-medium">its like beanboozled but for music</p>
-          </div>
-          <div className="flex flex-row justify-center space-x-2.5 items-center">
-            <button className='px-2.5 border bg-white/90 rounded-lg max-w-fit py-1.5 hover:bg-blueberry hover:border-slate-900/70' onClick={getArtist}>
-              <p className="font-bold">Who am I stanning next?</p>
-            </button>
-            <a className="font-sans font-bold underline hover:text-slate-600" onClick={getAccessToken} href='#'>Test your luck</a>
+    <div>
+      <Head>
+        <title>Artist Roulette</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff"></meta>
+      </Head>
+      <main className={inter.className}>
+        <Header />
+        <div className="container flex flex-row justify-center w-auto mx-auto mt-8">
+          <div className="container flex flex-col space-y-6">
+            <div className="flex flex-row justify-center">
+              <p className="font-sans font-medium">WELCOME TO</p>
+            </div>
+            <div className="flex flex-row justify-center">
+              <p className="font-sans text-4xl font-bold">ARTIST ROULETTE</p>
+            </div>
+            <div className="flex flex-row justify-center">
+              <p className="font-sans font-medium">its like beanboozled but for music</p>
+            </div>
+            <div className="flex flex-row justify-center space-x-2.5 items-center">
+              <button className='px-2.5 border bg-white/90 rounded-lg max-w-fit py-1.5 hover:bg-blueberry hover:border-slate-900/70' onClick={getArtist}>
+                <p className="font-bold">Who am I stanning next?</p>
+              </button>
+              <a className="font-sans font-bold underline hover:text-slate-600" onClick={getAccessToken} href='#'>Test your luck</a>
+            </div>
           </div>
         </div>
-      </div>
-      <Card artistPhoto={ artist.photo } name={ artist.name } tracks={tracks} />
-      <div className="w-full h-full py-12 text-center bg-white/30">bottom</div>
-    </main>
+        <Card artistPhoto={ artist.photo } name={ artist.name } tracks={tracks} />
+        <div className="w-full h-full py-12 text-center bg-white/30">bottom</div>
+      </main>
+    </div>
   )
 }

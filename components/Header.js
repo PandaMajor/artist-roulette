@@ -1,7 +1,7 @@
 import Image from "next/image"
-import Vinyl from '../assets/Vinyl.svg'
-import Question from '../assets/Question.svg'
-import Note from '../assets/Note.svg'
+import Vinyl from '../public/Vinyl.svg'
+import Question from '../public/Question.svg'
+import Note from '../public/Note.svg'
   
   export default function Header() {
     return (

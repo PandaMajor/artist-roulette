@@ -6,7 +6,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --bg-img: url('../assets/gradient.png')
+  --bg-img: url('/gradient.png')
 }
 
 @media (prefers-color-scheme: light) {
