@@ -93,18 +93,23 @@ export default function Home() {
         let topTracks:any[] = []
 
         for(const element of response.data.tracks){
+          if (topTracks.length < 5){                                      // limit top tracks to 5, (default is 10)
+            topTracks.push({
+              albumCover: element.album.images[2].url,
+              songTitle: element.name,
+              duration: millisToMinutesAndSeconds(element.duration_ms),
+              index: topTracks.length + 1
+            });
+          }
           console.log('\t' + element.name)
-          topTracks.push({
-            albumCover: element.album.images[2].url,
-            songTitle: element.name,
-            duration: millisToMinutesAndSeconds(element.duration_ms),
-            key: tracks.length + 1
-          });
-          // setTracks([]);
+          // topTracks.push({
+          //   albumCover: element.album.images[2].url,
+          //   songTitle: element.name,
+          //   duration: millisToMinutesAndSeconds(element.duration_ms),
+          //   index: topTracks.length + 1
+          // });
         }
-        // console.log(topTracks)
         setTracks(topTracks);
-        // console.log(tracks)
         delete artists[randArtist]
         console.log(artist.name + ' removed')
       })
