@@ -140,7 +140,7 @@ export default function Home() {
             <button className='px-2.5 border bg-white/90 rounded-lg max-w-fit py-1.5 hover:bg-blueberry hover:border-slate-900/70' onClick={getArtist}>
               <p className="font-bold">Who am I stanning next?</p>
             </button>
-            <a className="font-sans font-bold underline hover:text-slate-600" onClick={getAccessToken}>Test your luck</a>
+            <a className="font-sans font-bold underline hover:text-slate-600" onClick={getAccessToken} href='#'>Test your luck</a>
           </div>
         </div>
       </div>
