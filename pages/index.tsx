@@ -32,7 +32,6 @@ export default function Home() {
     })
     .then(function (response: any) {
       setToken(response.data.access_token)
-      console.log('token : ' + token)
       return response.data.access_token
     })
   };
@@ -113,7 +112,6 @@ export default function Home() {
         }
         setTracks(topTracks);
         delete artists[randArtist]
-        console.log(artist.name + ' removed')
       })
       .catch((error: any) => {
         console.log(error)
