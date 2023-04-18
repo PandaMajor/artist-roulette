@@ -13,7 +13,7 @@ const Track = ({albumCover, songTitle, duration, index}) => {
               cover='true'
               className='w-16 h-16 rounded-lg' />
         </div>
-        <div className="justify-start w-auto xl:w-80 truncate ... text-ellipsis">
+        <div className="justify-start w-32 xl:w-80 truncate ... text-ellipsis">
           <p className=" text-white truncate ... text-ellipsis">{songTitle}</p>
         </div>
         <div className="justify-end pr-2 mr-1 text-white">{duration}</div>

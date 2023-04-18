@@ -146,7 +146,7 @@ export default function Home() {
             <div className="flex flex-row justify-center">
               <p className="font-sans font-medium">its like beanboozled but for music</p>
             </div>
-            <div className="flex flex-row justify-center space-x-2.5 items-center">
+            <div className="flex flex-col sm:flex-row justify-center sm:space-x-2.5 space-y-2.5 items-center">
               <button className='px-2.5 border bg-white/90 rounded-lg max-w-fit py-1.5 hover:bg-blueberry hover:border-slate-900/70' onClick={getArtist}>
                 <p className="font-bold">Who am I stanning next?</p>
               </button>

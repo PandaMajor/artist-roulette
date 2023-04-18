@@ -6,7 +6,7 @@ import Note from '../public/Note.svg'
   export default function Header() {
     return (
       <div className="container flex flex-row mx-auto h-44">
-        <div className="container flex flex-row justify-center mx-auto xl:mx-52">
+        <div className="container flex flex-col sm:flex-row justify-center mx-auto xl:mx-52">
             <div className="container flex flex-row items-center justify-start space-x-2">
                 <Image src={Vinyl} alt='Vinyl icon' />
                 <a className="text-2xl font-playfair hover:text-slate-900/80" href="#">ARTIST ROULETTE</a>
