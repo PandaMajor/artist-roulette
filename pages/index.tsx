@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
 import Header from '../components/Header'
 import Card from '../components/Card'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Head from 'next/head';
 
 const axios = require('axios').default;
@@ -35,6 +35,11 @@ export default function Home() {
       return response.data.access_token
     })
   };
+
+  // Get the access token on load, no longer need to click 'Test your luck' first
+  useEffect(() => {
+    getAccessToken();
+  }, [])
 
   // Used to convert the duration from ms to "minutes : seconds" format
   function millisToMinutesAndSeconds(millis: number) {
@@ -102,13 +107,7 @@ export default function Home() {
               index: topTracks.length + 1
             });
           }
-          console.log('\t' + element.name)
-          // topTracks.push({
-          //   albumCover: element.album.images[2].url,
-          //   songTitle: element.name,
-          //   duration: millisToMinutesAndSeconds(element.duration_ms),
-          //   index: topTracks.length + 1
-          // });
+          // console.log('\t' + element.name)
         }
         setTracks(topTracks);
         delete artists[randArtist]

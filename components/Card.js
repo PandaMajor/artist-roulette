@@ -9,7 +9,7 @@ const Card = ({artistPhoto, name, tracks}) => {
       <div className="relative self-center w-fill sm:w-1/2 overflow-hidden h-fit">
         <Image 
             src={artistPhoto} 
-            alt='photo of artist' 
+            alt={name}
             width={640}
             height={640}
             cover='true'
