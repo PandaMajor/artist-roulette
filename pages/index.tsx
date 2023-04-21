@@ -149,6 +149,17 @@ export default function Home() {
     return res
   }
 
+  // gets the ratio of low ranked artists to rest of them
+  function getRatio() {
+    const total = getAvailableArtists();
+    let jokers = 0
+    for(let i = 0; i < list.length; i++) {
+      parseFloat(list[i].avg_rating) <= 3.0 ? jokers++ : null
+    }
+    console.log(jokers)
+    return jokers / total
+  }
+
   return (
     <div>
       <Head>
@@ -186,7 +197,8 @@ export default function Home() {
           <h1 className="font-sans text-4xl font-bold">
             THE POOL
           </h1>
-          <p className='my-4'>The chance to get any artist is { (1 / getAvailableArtists()) * 100 }%</p>
+          <p className='my-4'>The chance to get any artist is { Math.round(1 / getAvailableArtists() * 1000)/10 }%</p>
+          <p className='my-4 text-sm italic'>The chance to get a funny artist is { Math.round(getRatio() * 1000)/10 }%</p>
           <div className='w-3/5 mx-auto'>
             <table className='w-full text-left'>
               <caption className="p-1 text-sm text-left text-gray-800">List of artists</caption>
