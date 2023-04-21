@@ -14,9 +14,6 @@ export default function Home() {
   const SPOTIFY_SECRET=process.env.NEXT_PUBLIC_SPOTIFY_SECRET
   const SPOTIFY_TOKEN_ENDPOINT=process.env.NEXT_PUBLIC_SPOTIFY_TOKEN_ENDPOINT
 
-  let artists = [
-    '4dpARuHxo51G3z768sgnrY', '1vCWHaC5f2uS3yhpwWbIA6', '3Nrfpe0tUJi4K4DXYWgMUX', '4gzpq5DPGxSnKTe4SA8HAU', '5cj0lLjcoR7YOSnhnX0Po5', '3TVXtAsR1Inumwj472S9r4', '6M2wZ9GZgrQXHCFfjv46we', '53XhwfbYqKCa1cC15pYq2q', '4MCBfE4596Uoi2O4DtmEMz', '1uNFoZAHBGtllmzznpCI3s', '04gDigrS5kc9YWfZHwBETP', '2l35CQqtYRh3d8ZIiBep4v', '1McMsnEElThX1knmY4oliG', '5WUlDfRSoLAfcVSX1WnrxN', '6jeg7JBX9J9097esK752iR', '3AQRLZ9PuTAozP28Skbq8V', '6PfSUFtkMVoDkx4MQkzOi3', '4r63FhuTkUYltbVAg5TQnk', '07YZf4WDAMNwqr4jfgOZ8y', '31TPClRtHm23RisEBtV3X7', '2QsynagSdAqZj3U9HgDzjD', '3WrFJ7ztbogyGnTHbHJFl2', '06HL4z0CvFAxyc27GXpf02', '1KCSPY1glIKqW2TotWuXOR', '3PALZKWkpwjRvBsRmhlVSS', '1RyvyyTE3xzB2ZywiAwp0i', '44vREmJC0OlVZjZaGLqVEd', '6vWDO969PvNqNYHIOW5v0m', '3fMbdgg4jU18AjLCKBhRSm', '66CXWjxzNUsdJxJ2JdwvnR', '1Xyo4u8uXC1ZmMpatF05PJ', '21E3waRsmPlU7jZsS13rcj', '6jJ0s89eD6GaHleKKya26X', '5K4W6rqBFWDnAN6FQUkS6x', '4lxfqrEsLX6N1N4OCSkILp', '5pKCCKE2ajJHZ9KAiaK11H', '2qxJFvFYMEDqd7ui6kSAcq', '2YZyLoL8N0Wb9xBt1NhZWg', '6deZN1bslXzeGvOLaLMOIF', '26dSoYclwsYLMAKD3tpOr4', '6LqNN22kT3074XbTVUrhzX', '0C8ZW7ezQVs4URX5aX7Kqx', '0TnOYISbd1XYRBk9myaseg', '1HY2Jd0NmPuamShAr6KMms', '2wUjUUtkb5lvLKcGKsKqsR', '4QQgXkCYTt3BlENzhyNETg', '7eGJeQTIqcNgSTn7x5tIse', '3ApUX1o6oSz321MMECyIYd', '7naAJDAh7AZnf18YYfQruM', '6fcTRFpz0yH79qSKfof7lp', '35l9BRT7MXmM8bv2WDQiyB', '07QEuhtrNmmZ0zEcqE9SF6', '3dz0NnIZhtKKeXZxLOxCam', '6eUKZXaKkcviH0Ku9w2n3V', '0kX41bvrBQtgqSEXbmTzMN', '1anyVhU62p31KFi8MEzkbf', '5dhseP7KiICmkxT5waM1Md', '3iri9nBFs9e4wN7PLIetAw', '7dGJo4pcD2V6oG8kP0tJRR', '3MZsBdqDrRTJihTHQrO6Dq', '0du5cEVh5yTK9QJze8zA0C', '0B7Y5KDNScTBzeN7DY74YG', '3iNL7rw7fpmysjZvhB8vi7', '0X2BH1fck6amBIoJhDVmmJ', '74KM79TiuVKeVCqs8QtB0B', '4iHNK0tOyZPYnBU7nGAgpQ', '7n2Ycct7Beij7Dj7meI4X0', '7tYKF4w9nC0nq9CsPZTHyP', '0EmeFodog0BfCgMzAIvKQp', '6qqNVTkY8uBg9cP3Jd7DAH', '64M6ah0SkkRsnPGtGiRAbb', '0p4nmQO2msCgU4IF37Wi3j', '1l7ZsJRRS8wlW3WfJfPfNS', '3BmGtnKgCSGYIUhmivXKWX', '1U1el3k54VvEUzo3ybLPlM', '6sFIWsNpZYqfjUpaCgueju', '64tJ2EAv1R6UaZqc4iOCyj', '4DEItwf281SHmTnS8q3Mn9', '4oUHIQIBe0LHzYfvXNW4QM', '16oZKvXb6WkQlVAjwo2Wbg']
-
   const db = collection(database, 'artists_list')
 
   const [token, setToken] = useState();
@@ -134,7 +131,6 @@ export default function Home() {
           // console.log('\t' + element.name)
         }
         setTracks(topTracks);
-        delete artists[randArtist]
       })
       .catch((error: any) => {
         console.log(error)
@@ -150,6 +146,7 @@ export default function Home() {
     for(let i = 0; i < list.length; i++){
       list[i].available ? res++ : res
     }
+    console.log('number of available artists is ' + res)
     return res
   }
 
