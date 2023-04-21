@@ -70,14 +70,12 @@ export default function Home() {
   // Spotify API Calls
   const getArtist = async (e: { preventDefault: () => void }) => {
     let randArtist = Math.floor(Math.random() * list.length);             // Get random artist
-    console.log('random number is ' + randArtist)
-    console.log(list[randArtist].available)
-    while(!list[randArtist].available) {
+
+    while(!list[randArtist].available) {                                  // Ensure that the artist is valid
       randArtist = Math.floor(Math.random() * list.length)
-      console.log('artist is ' + list[randArtist].artist)
     }
 
-    e.preventDefault()                                              // Don't redirect page
+    e.preventDefault()                                                    // Don't redirect page
 
     axios.post(SPOTIFY_TOKEN_ENDPOINT!, {
       client_id: SPOTIFY_CLIENT_ID!,
@@ -141,12 +139,13 @@ export default function Home() {
     })
   }
 
+  // counts the number of artists that are available
   function getAvailableArtists() {
     let res = 0
     for(let i = 0; i < list.length; i++){
       list[i].available ? res++ : res
     }
-    console.log('number of available artists is ' + res)
+    // console.log('number of available artists is ' + res)
     return res
   }
 
@@ -174,7 +173,7 @@ export default function Home() {
             <div className="flex flex-row justify-center">
               <p className="font-sans font-medium">its like beanboozled but for music</p>
             </div>
-            <div className="flex flex-col sm:flex-row justify-center sm:space-x-2.5 space-y-2.5 items-baseline">
+            <div className="flex flex-col sm:flex-row justify-center sm:space-x-2.5 space-y-2.5 items-center xl:items-baseline">
               <button className='px-2.5 border bg-white/90 rounded-lg max-w-fit py-1.5 hover:bg-blueberry hover:border-slate-900/70' onClick={getArtist}>
                 <p className="font-bold">Who am I stanning next?</p>
               </button>
