@@ -154,7 +154,7 @@ export default function Home() {
     const total = getAvailableArtists();
     let jokers = 0
     for(let i = 0; i < list.length; i++) {
-      parseFloat(list[i].avg_rating) <= 3.0 ? jokers++ : null
+      parseFloat(list[i].avg_rating) <= 3.0 && list[i].available ? jokers++ : null
     }
     console.log(jokers)
     return jokers / total
