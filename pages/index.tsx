@@ -156,7 +156,6 @@ export default function Home() {
     for(let i = 0; i < list.length; i++) {
       parseFloat(list[i].avg_rating) <= 3.0 && list[i].available ? jokers++ : null
     }
-    console.log(jokers)
     return jokers / total
   }
 
