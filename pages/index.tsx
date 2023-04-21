@@ -213,9 +213,9 @@ export default function Home() {
                 { list.map((item: any, i: any) => {
                   return (
                     <tr key={i} className='flex w-full h-full text-white even:bg-light-bg odd:bg-dark-bg'>
-                      <td className='w-1/3 p-3'>{item.artist}</td>
-                      <td className='w-1/3 p-3'>{item.avg_rating}</td>
-                      <td className={`w-1/3 p-3 ${ item.available ? 'text-green-500' : 'text-red-500' }`}>{item.available.toString()}</td>
+                      <td className='w-1/3 p-3'>{ item.artist }</td>
+                      <td className='w-1/3 p-3'>{ Math.round(item.avg_rating * 10) /10 }</td>
+                      <td className={`w-1/3 p-3 ${ item.available ? 'text-green-500' : 'text-red-500' }`}>{ item.available.toString() }</td>
                     </tr>
                   )
                 })}
