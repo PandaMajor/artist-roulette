@@ -192,35 +192,37 @@ export default function Home() {
           </div>
         </div>
         <Card artistPhoto={ artist.photo } name={ artist.name } tracks={ tracks } />
-        <div className="w-full h-full py-12 text-center">
-          <h1 className="font-sans text-4xl font-bold">
-            THE POOL
-          </h1>
-          <p className='my-4'>The chance to get any artist is { Math.round(1 / getAvailableArtists() * 1000)/10 }%</p>
-          <p className='my-4 text-sm italic'>The chance to get a funny artist is { Math.round(getRatio() * 1000)/10 }%</p>
-          <div className='w-3/5 mx-auto'>
-            <table className='w-full text-left'>
-              <caption className="p-1 text-sm text-left text-gray-800">List of artists</caption>
-                <thead className='flex w-full text-white rounded-t-lg bg-black/80'>
-                  <tr className='flex w-full py-1'>
-                    <th className='w-1/3 p-3'>Artist</th>
-                    <th className='w-1/3 p-3'>Rating</th>
-                    <th className='w-1/3 p-3'>Available</th>
-                  </tr>
-                </thead>
-              <tbody className='flex flex-col items-center justify-between w-full h-64 overflow-y-scroll rounded-b-lg bg-black/60'>
-                { list.map((item: any, i: any) => {
-                  return (
-                    <tr key={i} className='flex w-full h-full text-white even:bg-light-bg odd:bg-dark-bg'>
-                      <td className='w-1/3 p-3'>{ item.artist }</td>
-                      <td className='w-1/3 p-3'>{ Math.round(item.avg_rating * 10) /10 }</td>
-                      <td className={`w-1/3 p-3 ${ item.available ? 'text-green-500' : 'text-red-500' }`}>{ item.available.toString() }</td>
+        <div className="w-full h-full text-center">
+          <div className="flex flex-col my-8 space-y-4">
+            <h1 className="font-sans text-4xl font-bold">
+              THE POOL
+            </h1>
+            <p>The chance to get any artist is { Math.round(1 / getAvailableArtists() * 1000)/10 }%</p>
+            <p className='text-sm italic'>The chance to get a funny artist is { Math.round(getRatio() * 1000)/10 }%</p>
+            <div className='w-3/5 mx-auto'>
+              <table className='w-full text-left'>
+                <caption className="p-1 text-sm text-left text-gray-800">List of artists</caption>
+                  <thead className='flex w-full text-white rounded-t-lg bg-black/80'>
+                    <tr className='flex w-full py-1'>
+                      <th className='w-1/3 p-3'>Artist</th>
+                      <th className='w-1/3 p-3'>Rating</th>
+                      <th className='w-1/3 p-3'>Available</th>
                     </tr>
-                  )
-                })}
-              </tbody>
-            </table>
-          </div>  
+                  </thead>
+                <tbody className='flex flex-col items-center justify-between w-full h-64 overflow-y-scroll rounded-b-lg bg-black/60'>
+                  { list.map((item: any, i: any) => {
+                    return (
+                      <tr key={i} className='flex w-full h-full text-white even:bg-light-bg odd:bg-dark-bg'>
+                        <td className='w-1/3 p-3'>{ item.artist }</td>
+                        <td className='w-1/3 p-3'>{ Math.round(item.avg_rating * 10) /10 }</td>
+                        <td className={`w-1/3 p-3 ${ item.available ? 'text-green-500' : 'text-red-500' }`}>{ item.available.toString() }</td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </main>
     </div>

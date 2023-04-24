@@ -1,38 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a personal project I built to host the game for my friends.
 
-## Getting Started
+## The Rules  
+---
 
-First, run the development server:
+An artist is randomly selected from the list. For 24 hours you can only listen to music by the selected artist for a minimum of 2 hours total a day. Additonally, any tracks that feature the artist is fair game and can be listened to for the challenge. The goal is to discover new discography for a week.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+# Technologies used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Figma
+- React
+- Next.js
+- Tailwind CSS
+- Google Firebase
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# The Process
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+First, I created an initial prototype of the project in Figma to layout what I wanted the end result to look like along with some of it's functionality that can be viewed in the prototype. 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+After creating a reference for the project, I decided to build it using React and Tailwind CSS so that the end product could be responsive.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+For the backend database, I wanted to use Google Firebase so that it could be remotely accessed.
 
-## Learn More
+Finally, I decided to host the website using Vercel as it is streamlined with Next.js projects.
 
-To learn more about Next.js, take a look at the following resources:
+You can see the end product here: https://artist-roulette.vercel.app/
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![photo of the card](./public/pictures/artist%20roulette%20card.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![photo of the database](./public/pictures/artist%20roulette%20database.png)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

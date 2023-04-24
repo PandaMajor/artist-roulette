@@ -5,7 +5,7 @@ import Image from 'next/image'
 const Card = ({artistPhoto, name, tracks}) => {
   return (
     <div className="container flex flex-row justify-center mx-auto">
-      <div className="container flex flex-col justify-center w-4/5 p-4 my-32 sm:flex-row sm:w-2/3 sm:p-6 sm:mx-auto sm:space-x-10 xl:mx-52 bg-black/70 rounded-2xl">
+      <div className="container flex flex-col justify-center w-4/5 p-4 mt-32 sm:flex-row sm:w-2/3 sm:p-6 sm:mx-auto sm:space-x-10 xl:mx-52 bg-black/70 rounded-2xl">
       <div className="relative self-center overflow-hidden w-fill sm:w-1/2 h-fit">
         <Image 
             src={artistPhoto} 
