@@ -193,7 +193,7 @@ export default function Home() {
         </div>
         <Card artistPhoto={ artist.photo } name={ artist.name } tracks={ tracks } />
         <div className="w-full h-full text-center">
-          <div className="flex flex-col my-8 space-y-4">
+          <div className="flex flex-col my-20 space-y-4">
             <h1 className="font-sans text-4xl font-bold">
               THE POOL
             </h1>
