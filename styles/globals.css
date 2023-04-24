@@ -22,3 +22,25 @@ body {
   background: var(--bg-img) no-repeat top;
   background-size: cover;
 }
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(241, 245, 249) rgb(55, 65, 81);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(241, 245, 249);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(55, 65, 81);
+  border-radius: 14px;
+  border: 1px solid rgb(129, 135, 146);
+}
