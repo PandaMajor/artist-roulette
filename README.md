@@ -8,6 +8,7 @@ An artist is randomly selected from the list. For 24 hours you can only listen t
 # Technologies used
 
 - Figma
+- Node.js
 - React
 - Next.js
 - Tailwind CSS
